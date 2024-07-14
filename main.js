@@ -119,19 +119,21 @@ function updateView(bookData) {
     const year = sanitizeHTML(book.year.toString());
 
     const template = `
-      <div data-bookid="${id}" data-testid="bookItem">
+      <div class="book_item" data-bookid="${id}" data-testid="bookItem">
         <h3 data-testid="bookItemTitle">${title}</h3>
         <p data-testid="bookItemAuthor">Penulis: ${author}</p>
         <p data-testid="bookItemYear">Tahun: ${year}</p>
         <div>
-          <button data-testid="bookItemIsCompleteButton" onclick="completeToggle(${book.id})">
+          <button class="violet" data-testid="bookItemIsCompleteButton" onclick="completeToggle(${
+            book.id
+          })">
              ${book.isComplete ? "Belum Selesai Dibaca" : "Selesai Dibaca"}
           </button>
-          <button data-testid="bookItemDeleteButton" onclick="deleteBook(${book.id})">
-            Hapus Buku
-          </button>
-          <button data-testid="bookItemEditButton" onclick="editBook(${book.id})">
+          <button class="green" data-testid="bookItemEditButton" onclick="editBook(${book.id})">
             Edit Buku
+          </button>
+          <button class="red" data-testid="bookItemDeleteButton" onclick="deleteBook(${book.id})">
+            Hapus Buku
           </button>
         </div>
       </div>`;

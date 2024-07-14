@@ -96,28 +96,6 @@ button:hover {
   transform: translateY(-2px);
 }
 
-#bookSubmit {
-  background-color: #6200ea;
-  color: white;
-}
-
-#bookSubmit:hover {
-  background-color: #5e00e0;
-}
-
-#searchSubmit {
-  background-color: #03dac5;
-  color: white;
-}
-
-#searchSubmit:hover {
-  background-color: #02cbb3;
-}
-
-.book_list {
-  margin-top: 1em;
-}
-
 .book_item {
   padding: 1em;
   background-color: #f9f9f9;
@@ -134,21 +112,10 @@ button:hover {
 .book_item h3 {
   margin-top: 0;
   font-size: 1.2em;
-  color: #6200ea;
 }
 
 .book_item p {
   margin: 0.5em 0;
-}
-
-.action {
-  margin-top: 1em;
-}
-
-.action button {
-  padding: 0.5em 1em;
-  margin-right: 0.5em;
-  font-size: 0.9em;
 }
 
 button.green {
@@ -158,6 +125,15 @@ button.green {
 
 button.green:hover {
   background-color: #02cbb3;
+}
+
+button.violet {
+  background-color: #6200ea;
+  color: white;
+}
+
+button.violet:hover {
+  background-color: #5e00e0;
 }
 
 button.red {
