@@ -116,7 +116,7 @@ function updateView(bookData) {
     const id = book.id;
     const title = sanitizeHTML(book.title);
     const author = sanitizeHTML(book.author);
-    const year = sanitizeHTML(book.year.toString());
+    const year = sanitizeHTML(book.year);
 
     const template = `
       <div class="book_item" data-bookid="${id}" data-testid="bookItem">
