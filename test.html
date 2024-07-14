@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Manager</title>
+    <style>
+        /* Styling sederhana untuk tata letak */
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        .book-list {
+            margin-top: 20px;
+        }
+
+        .book-item {
+            margin-bottom: 10px;
+        }
+
+        .buttons {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Book Manager</h1>
+
+    <section id="form-section">
+        <h2 id="form-title">Add Book</h2>
+        <form id="book-form">
+            <input type="hidden" id="book-id" />
+            <div>
+                <label for="title">Title:</label>
+                <input type="text" id="title" required />
+            </div>
+            <div>
+                <label for="author">Author:</label>
+                <input type="text" id="author" required />
+            </div>
+            <div class="buttons">
+                <button type="submit">Submit</button>
+                <button type="button" id="cancel-button" style="display:none;" onclick="cancelEdit()">Cancel</button>
+            </div>
+        </form>
+    </section>
+
+    <section id="book-list-section">
+        <h2>Book List</h2>
+        <div id="book-list" class="book-list"></div>
+    </section>
+
+    <script>
+        let books = [];
+        let editingBookId = null;
+
+        document.getElementById('book-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const title = document.getElementById('title').value;
+            const author = document.getElementById('author').value;
+            const bookId = document.getElementById('book-id').value;
+
+            if (editingBookId) {
+                // Update existing book
+                const bookIndex = books.findIndex(book => book.id === editingBookId);
+                books[bookIndex] = { id: editingBookId, title, author };
+                editingBookId = null;
+            } else {
+                // Add new book
+                const newBook = {
+                    id: Date.now().toString(),
+                    title,
+                    author
+                };
+                books.push(newBook);
+            }
+
+            document.getElementById('book-form').reset();
+            document.getElementById('form-title').textContent = 'Add Book';
+            document.getElementById('book-id').value = '';
+            document.getElementById('cancel-button').style.display = 'none';
+
+            renderBookList();
+        });
+
+        function renderBookList() {
+            const bookList = document.getElementById('book-list');
+            bookList.innerHTML = '';
+
+            books.forEach(book => {
+                const bookItem = document.createElement('div');
+                bookItem.className = 'book-item';
+                bookItem.innerHTML = `
+                    <strong>${book.title}</strong> by ${book.author}
+                    <button onclick="editBook('${book.id}')">Edit</button>
+                `;
+                bookList.appendChild(bookItem);
+            });
+        }
+
+        function editBook(bookId) {
+            const book = books.find(b => b.id === bookId);
+            document.getElementById('title').value = book.title;
+            document.getElementById('author').value = book.author;
+            document.getElementById('book-id').value = book.id;
+            editingBookId = book.id;
+
+            document.getElementById('form-title').textContent = 'Edit Book';
+            document.getElementById('cancel-button').style.display = 'inline';
+        }
+
+        function cancelEdit() {
+            document.getElementById('book-form').reset();
+            document.getElementById('form-title').textContent = 'Add Book';
+            document.getElementById('book-id').value = '';
+            document.getElementById('cancel-button').style.display = 'none';
+            editingBookId = null;
+        }
+
+        renderBookList();
+    </script>
+
+</body>
+
+</html>

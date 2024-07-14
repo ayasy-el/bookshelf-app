@@ -1,0 +1,170 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+header {
+  background-color: #6200ea;
+  color: white;
+  padding: 1.5em 0;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.8em;
+}
+
+main {
+  padding: 2em;
+  max-width: 800px;
+  margin: auto;
+}
+
+section {
+  margin-bottom: 2em;
+  padding: 1.5em;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-weight: 600;
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  color: #6200ea;
+}
+
+input,
+input_inline {
+  margin-bottom: 1.5em;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  color: #333;
+}
+
+form > button > span {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 0.75em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #6200ea;
+  outline: none;
+}
+
+input[type="checkbox"] {
+  width: 2em;
+  height: 2em;
+  margin-right: 0.5em;
+}
+
+button {
+  padding: 0.75em 1.5em;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+#bookSubmit {
+  background-color: #6200ea;
+  color: white;
+}
+
+#bookSubmit:hover {
+  background-color: #5e00e0;
+}
+
+#searchSubmit {
+  background-color: #03dac5;
+  color: white;
+}
+
+#searchSubmit:hover {
+  background-color: #02cbb3;
+}
+
+.book_list {
+  margin-top: 1em;
+}
+
+.book_item {
+  padding: 1em;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin-bottom: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.book_item:hover {
+  transform: translateY(-2px);
+}
+
+.book_item h3 {
+  margin-top: 0;
+  font-size: 1.2em;
+  color: #6200ea;
+}
+
+.book_item p {
+  margin: 0.5em 0;
+}
+
+.action {
+  margin-top: 1em;
+}
+
+.action button {
+  padding: 0.5em 1em;
+  margin-right: 0.5em;
+  font-size: 0.9em;
+}
+
+button.green {
+  background-color: #03dac5;
+  color: white;
+}
+
+button.green:hover {
+  background-color: #02cbb3;
+}
+
+button.red {
+  background-color: #b00020;
+  color: white;
+}
+
+button.red:hover {
+  background-color: #a0001d;
+}
